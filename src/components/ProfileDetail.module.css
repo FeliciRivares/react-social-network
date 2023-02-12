@@ -1,0 +1,27 @@
+.title{
+    margin-bottom: 10px;
+
+}
+.text{
+    margin-bottom: 5px;
+
+}
+.textContainer{
+
+
+}
+.content{
+    margin: 0 10px;
+    display: flex;
+    gap: 20px;
+}
+.imgContainer img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.imgContainer{
+    width: 25%;
+    
+   
+}

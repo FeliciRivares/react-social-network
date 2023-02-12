@@ -1,9 +1,10 @@
 import React from "react";
+import style from "./Header.module.css";
 
 const Header = () => {
     return (
-        <header className='header'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ96lrvoXbEiXlbj9_Czn6FwsFICjdoxiN_KQ&usqp=CAU" alt=""/>
+        <header className = {style.header}>
+            <img src="./img/icon.png" alt=""/>
         </header>
     )
 }

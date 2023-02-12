@@ -1,0 +1,29 @@
+:root{
+    --primary-gradient: linear-gradient(90deg, #08AEEA 0%, #2AF598 100%);
+    --box-shadow: 0px 10px 23px -10px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+.nav{
+    grid-area: nav;
+    background: var(--primary-gradient);
+    background-color: #08AEEA;
+    border-radius: 5px 20px;
+    box-shadow: var(--box-shadow);
+    max-height: 60vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: .6vh ;
+    flex-direction: column;
+    padding: 30px 5px;
+}
+.nav div a{
+    color: #ffffff;
+    font-size: 1.6vw;
+    text-transform: uppercase;
+    letter-spacing: .4rem;
+    transition: all 0.3s ease 0s;
+}
+.nav div a:hover{
+    letter-spacing: .5rem;
+    text-decoration:underline 3px solid;
+}

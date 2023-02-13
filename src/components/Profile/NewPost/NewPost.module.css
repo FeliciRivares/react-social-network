@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+textarea{
+    min-height: 70px;
+    width: 60%;
+    border: 1px solid #4444;
+    resize: none;
+}
+/* label{
+    display: block;
+    width: 60%;
+    border: 1px solid #4444;
+} */

@@ -7,11 +7,11 @@
 
 }
 .textContainer{
-
+    padding: 10px;
 
 }
 .content{
-    margin: 0 10px;
+    margin: 0 10px 50px;
     display: flex;
     gap: 20px;
 }
@@ -19,6 +19,7 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    box-shadow: 0px 0px 20px -7px #111111, 15px 15px 15px 15px rgba(0,0,0,0);
 }
 .imgContainer{
     width: 25%;

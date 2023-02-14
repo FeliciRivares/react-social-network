@@ -1,29 +1,30 @@
-:root{
-    --primary-gradient: linear-gradient(90deg, #08AEEA 0%, #2AF598 100%);
-    --box-shadow: 0px 10px 13px -12px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-}
 .nav{
     grid-area: nav;
-    /* background: var(--primary-gradient);
-    background-color: #08AEEA; */
-    background-color:  rgba(250, 242, 255, 0.705);
-    border-radius: 5px ;
-    box-shadow: var(--box-shadow);
-    max-height: 60vh;
+    background-color:  rgba(48, 45, 49, 0.705);
+    border-radius: 5px;
+    height: 60vh;
     display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: .6vh ;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    gap: 1vh;
     flex-direction: column;
-    padding: 30px 5px;
+    padding: 2px 10px 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
-.nav div a{
-    font-size: 1.6vw;
+
+.item{
+    font-size: 20px;
     text-transform: uppercase;
     letter-spacing: .4rem;
     transition: all 0.3s ease 0s;
 }
-.nav div a:hover{
+.item:hover{
     letter-spacing: .5rem;
-    text-decoration:underline 3px solid;
+}
+.item a{
+    color: white;
+}
+
+.item a.active{
+    color: rgb(225, 166, 166);
 }

@@ -15,29 +15,6 @@
     display: grid;
     grid-template-columns: 2fr 10fr;
 }
-.dialogsList{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.dialog{
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
-.dialog:hover{
-    color: white;
-}
-.textList{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 
-}
-.text{
-    background-color: rgb(100, 97, 97);
-    border-radius: 20px;
-    min-height: 60px;
-    max-height: 200px;
-    padding: 5px 10px;
-    overflow: auto;
-}
+
+

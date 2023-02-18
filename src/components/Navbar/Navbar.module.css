@@ -4,13 +4,12 @@
     border-radius: 5px;
     height: 60vh;
     display: flex;
-    justify-content: space-evenly;
-    /* align-items: center; */
-    gap: 1vh;
+    gap: 25px;
     flex-direction: column;
-    padding: 2px 10px 15px;
+    padding: 30px 10px 15px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
 
 .item{
     font-size: 20px;
@@ -27,4 +26,8 @@
 
 .item a.active{
     color: rgb(225, 166, 166);
+}
+.friends{
+   padding-top: 50px;
+   padding-bottom: 10px;
 }

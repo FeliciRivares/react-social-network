@@ -1,8 +1,27 @@
+.content{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    overflow: auto;
+    padding-right: 10px;
+
+}
 .text{
     background-color: rgb(100, 97, 97);
-    border-radius: 20px;
+    border-radius: 20px 20px 20px 0px;
     min-height: 60px;
-    max-height: 200px;
-    padding: 5px 10px;
-    overflow: auto;
+    max-height: 150px;
+    padding: 10px 5px; 
+}
+.textElse{
+    border-radius: 20px 20px 0px 20px;
+    background-color: #a1a5a5;
+    color:rgb(100, 97, 97) ;
+    min-height: 60px;
+    max-height: 150px;
+    padding: 10px 5px; 
+    max-width: 80%;
+    position: relative;
+    left: 20%;
+    top: 0%;
 }

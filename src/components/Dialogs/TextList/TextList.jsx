@@ -4,7 +4,7 @@ import Text from './Text/Text';
 
 
 const TextList = (props) =>{
-    let textItem = props.textItems.map(t => <Text text={t.text}/>)
+    let textItem = props.textItems.map(t => <Text textElse={t.textElse} text={t.text}/>)
     return (
         <div className={style.textList}>
                {textItem} 

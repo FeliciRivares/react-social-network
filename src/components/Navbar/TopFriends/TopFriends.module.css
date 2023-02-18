@@ -1,0 +1,25 @@
+.header{
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+li{
+    width: 33%;
+}
+li p{
+    font-size: 10px;
+    letter-spacing: normal;
+    text-transform: capitalize;
+}
+div img{
+    height: 50px;
+    width: 50px;
+}
+img{
+    border-radius: 50%;
+}

@@ -3,7 +3,7 @@
     gap: 20px;
     flex-direction: column;
     overflow: auto;
-    padding-right: 10px;
+    margin-right: 10px;
 
 }
 .text{
@@ -11,7 +11,7 @@
     border-radius: 20px 20px 20px 0px;
     min-height: 60px;
     max-height: 150px;
-    padding: 10px 5px; 
+    padding: 10px 10px; 
 }
 .textElse{
     border-radius: 20px 20px 0px 20px;

@@ -1,3 +1,7 @@
+import renderFullPage from "../render"
+
+let days = new Date().toLocaleDateString();
+
 
 const data = {
     dialog: {
@@ -14,14 +18,16 @@ const data = {
             {id:2, name:'Lii Ben'},
             {id:3, name:'Ben Geern'},
             {id:4, name:'Alla New'},
-        ]
+        ],
+       
     },
     profile: {
         postData: [
-        {id:1, header: 'Patrik', content: 'I`m happy cat', counter: '2', date: '10/03/02' },
-        {id:2, header: 'Sirco', content: 'I`m fell good and you?', counter: '23', date: '12/03/02' },
+        {id:1, header: 'Patrik', content: 'I`m happy cat', counter: '2', date: `${days}` },
+        {id:2, header: 'Sirco', content: 'I`m fell good and you?', counter: '23', date: `${days}` },
         {id:3, header: 'Misa', content: 'Me first post', counter: '12', date: '22/08/02' },
         ], 
+        
     },
     friends: {
         topFriends: [
@@ -31,4 +37,13 @@ const data = {
    
     
 }
+export let createNewPost = (postMessage) => {
+    debugger
+    let newPost = {
+        id:5, header: 'Patrik', content: postMessage, counter: '25', date: `${days}`
+    }
+    data.profile.postData.push(newPost); 
+    renderFullPage(data);
+}
+
 export default data

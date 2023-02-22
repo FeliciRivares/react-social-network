@@ -1,12 +1,13 @@
 import React from "react";
 import style from './NewPost.module.css'
 
-const NewPost = () => {
+const NewPost = ({createNewPost}) => {
     let newPostElement = React.createRef();
 
     let textArea = () => {
+        debugger
         let text = newPostElement.current.value;
-        alert(text)
+        createNewPost(text)
     }
     return(
         <div className={style.container}>

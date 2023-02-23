@@ -1,21 +1,25 @@
 import React from "react";
 import style from './NewPost.module.css'
 
-const NewPost = ({createNewPost}) => {
+
+const NewPost = (props) => {
     let newPostElement = React.createRef();
 
-    let textArea = () => {
-        debugger
+    let newPost = () => {
+        props.createNewPost();
+        newPostElement.current.value = "";
+    }
+    let postOnChange = () => {
         let text = newPostElement.current.value;
-        createNewPost(text)
+        props.updateNewPostText(text);
     }
     return(
         <div className={style.container}>
             <h3>Create New Post</h3>
-            <textarea ref={newPostElement}  placeholder="How does the cat feel?"></textarea>
+            <textarea ref={newPostElement} onChange={postOnChange} value={props.newPostText}  placeholder="How does the cat feel?"/>
             <label htmlFor="newPost"></label>
-            <button onClick={textArea} >Create</button>
+            <button onClick={newPost} >Create</button>
         </div>
     )
 }
-export default NewPost
+export default NewPost 

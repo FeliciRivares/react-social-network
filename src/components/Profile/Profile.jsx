@@ -12,8 +12,8 @@ const Profile = (props) =>{
           <img src="https://cdn1-www.cattime.com//assets/uploads/2019/03/cattime_logo_horizontal_primarycolor_light_bg_png.png" alt=""/>
         </div>
         <ProfileDetail/>
-        <NewPost  createNewPost={props.createNewPost}/>
-        <MyPosts postData={props.postData}/>
+        <NewPost updateNewPostText={props.updateNewPostText} createNewPost={props.createNewPost} profile={props.profile} />
+        <MyPosts postData={props.data.postData}/>
       </div>
     )
 }

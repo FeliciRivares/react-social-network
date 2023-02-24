@@ -1,3 +1,7 @@
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
+const CREATE_NEW_POST = 'CREATE_NEW_POST';
+
+
 
 let days = new Date().toLocaleDateString();
 let store = {
@@ -33,28 +37,36 @@ let store = {
             ],
         }, 
     },
+    dispatch(action){
+        if(action.type === CREATE_NEW_POST){
+            let newPost = {
+                id:5, header: 'Patrik', content: this._data.profile.newPostText, counter: '25', date: `${days}`
+            };
+            this._data.profile.postData.push(newPost); 
+            this._callSubscriber(this._data);
+
+        }else if(action.type === UPDATE_NEW_POST_TEXT){
+            this._data.profile.newPostText = action.newText;
+            this._callSubscriber(this._data);
+        
+        }},
     getData(){
         return this._data;
     },
     _callSubscriber() {
         console.log('data change');
     }, 
-    createNewPost() {
-        let newPost = {
-            id:5, header: 'Patrik', content: this._data.profile.newPostText, counter: '25', date: `${days}`
-        };
-        this._data.profile.postData.push(newPost); 
-        this._data.profile.newPostText = '   ';
-        this._callSubscriber(this._data);
-    },
-    updateNewPostText(newText){
-        this._data.profile.newPostText = newText;
-        this._callSubscriber(this._data);
-    },
     subscribe(observer){
         this._callSubscriber = observer;
     }
 
+}
+
+export const updateNewPostTextActionCreator = (text) => {
+    return {type: UPDATE_NEW_POST_TEXT, newText: text}
+}
+export const createNewPostActionCreator = () => {
+    return {type: CREATE_NEW_POST}
 }
 
 export default store

@@ -10,7 +10,7 @@ const Dialogs = (props) => {
             <h4>My Dialogs</h4>
             <div className={style.content}> 
               <DialogsList dialog={props.dialog}/>
-              <TextList textItems={props.textItems}/>
+              <TextList dispatch={props.dispatch} textItems={props.textItems}/>
             </div>
         </div>
     )

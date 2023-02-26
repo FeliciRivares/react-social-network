@@ -1,9 +1,7 @@
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
-const CREATE_NEW_POST = 'CREATE_NEW_POST';
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
 
 
-
-let days = new Date().toLocaleDateString();
 let store = {
     _data: {
         dialog: {
@@ -21,15 +19,16 @@ let store = {
                 {id:3, name:'Ben Geern'},
                 {id:4, name:'Alla New'},
             ],
+            newMessageText: '',
            
         },
         profile: {
             postData: [
-            {id:1, header: 'Patrik', content: 'I`m happy cat', counter: '2', date: `${days}` },
-            {id:2, header: 'Sirco', content: 'I`m fell good and you?', counter: '23', date: `${days}` },
+            {id:1, header: 'Patrik', content: 'I`m happy cat', counter: '2', date: '22/08/02' },
+            {id:2, header: 'Sirco', content: 'I`m fell good and you?', counter: '23', date: '22/08/02' },
             {id:3, header: 'Misa', content: 'Me first post', counter: '12', date: '22/08/02' },
             ], 
-            newPostText:'  ',
+            newPostText:'',
         },
         friends: {
             topFriends: [
@@ -38,18 +37,11 @@ let store = {
         }, 
     },
     dispatch(action){
-        if(action.type === CREATE_NEW_POST){
-            let newPost = {
-                id:5, header: 'Patrik', content: this._data.profile.newPostText, counter: '25', date: `${days}`
-            };
-            this._data.profile.postData.push(newPost); 
-            this._callSubscriber(this._data);
+        this._data.profile = profileReducer(this._data.profile, action);
+        this._data.dialog = dialogsReducer(this._data.dialog, action);
 
-        }else if(action.type === UPDATE_NEW_POST_TEXT){
-            this._data.profile.newPostText = action.newText;
-            this._callSubscriber(this._data);
-        
-        }},
+        this._callSubscriber(this._data);
+    },
     getData(){
         return this._data;
     },
@@ -62,11 +54,6 @@ let store = {
 
 }
 
-export const updateNewPostTextActionCreator = (text) => {
-    return {type: UPDATE_NEW_POST_TEXT, newText: text}
-}
-export const createNewPostActionCreator = () => {
-    return {type: CREATE_NEW_POST}
-}
+
 
 export default store

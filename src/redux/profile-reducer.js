@@ -6,8 +6,16 @@ export const updateNewPostTextActionCreator = (text) =>
    ({type: UPDATE_NEW_POST_TEXT, newText: text})
 export const createNewPostActionCreator = () => ({type: CREATE_NEW_POST})  
 
+let initialState = {
+    postData: [
+        {id:1, header: 'Patrik', content: 'I`m happy cat', counter: '2', date: '22/08/02' },
+        {id:2, header: 'Sirco', content: 'I`m fell good and you?', counter: '23', date: '22/08/02' },
+        {id:3, header: 'Misa', content: 'Me first post', counter: '12', date: '22/08/02' },
+        ], 
+        newPostText:'',
+}
 
-const profileReducer = (data, action) => {
+const profileReducer = (data = initialState , action) => {
     switch(action.type){
         case UPDATE_NEW_POST_TEXT:
             data.newPostText = action.newText;

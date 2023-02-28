@@ -1,26 +1,27 @@
 import React from "react";
 import style from './NewPost.module.css'
-import {createNewPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/profile-reducer'
+
 
 
 
 const NewPost = (props) => {
     let newPostElement = React.createRef();
 
-    let newPost = () => {
-        props.dispatch(createNewPostActionCreator())
-        newPostElement.current.value = "";
+    let onPostClick = () => {
+        props.createNewPost();
+        // props.dispatch(createNewPostActionCreator())
     }
-    let postOnChange = () => {
+    let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.dispatch(updateNewPostTextActionCreator(text))
+        props.updateNewPostText(text)
+        // props.dispatch(updateNewPostTextActionCreator(text))
     }
     return(
         <div className={style.container}>
             <h3>Create New Post</h3>
-            <textarea ref={newPostElement} onChange={postOnChange} value={props.newPostText}  placeholder="How does the cat feel?"/>
+            <textarea ref={newPostElement} onChange={onPostChange} value={props.newPostText}  placeholder="How does the cat feel?"/>
             <label htmlFor="newPost"></label>
-            <button onClick={newPost} >Create</button>
+            <button onClick={onPostClick} >Create</button>
         </div>
     )
 }

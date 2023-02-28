@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./Dialogs.module.css";
-import DialogsList from "./DialogsList/DialogsList";
-import TextList from "./TextList/TextList";
+import DialogsListContainer from "./DialogsList/DialogListContainer";
+import TextListContainer from "./TextList/TextListContainer";
 
 const Dialogs = (props) => {
   
@@ -9,8 +9,10 @@ const Dialogs = (props) => {
         <div className={style.container}>
             <h4>My Dialogs</h4>
             <div className={style.content}> 
-              <DialogsList dialog={props.dialog}/>
-              <TextList dispatch={props.dispatch} textItems={props.textItems}/>
+              <DialogsListContainer store={props.store}/>
+              <TextListContainer store={props.store}
+            //    textItems={props.textItems}
+               />
             </div>
         </div>
     )

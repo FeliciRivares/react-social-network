@@ -1,7 +1,6 @@
 import React from "react";
 import style from './TextList.module.css'
 import Text from './Text/Text';
-import { sendMessage, updateMessageText } from "../../../redux/dialogs-reducer";
 
 
 const TextList = (props) =>{
@@ -9,12 +8,15 @@ const TextList = (props) =>{
 
     let writeMessage = () => {
         let text = textAreaSend.current.value;
-        props.dispatch(updateMessageText(text))
+        props.updateMessageText(text)
+        // let text = textAreaSend.current.value;
+        // props.dispatch(updateMessageText(text))
     }
 
     let send = () => {
-        props.dispatch(sendMessage())
-        textAreaSend.current.value = '';
+        props.sendMessage();
+        // props.dispatch(sendMessage())
+        // textAreaSend.current.value = '';
     }
 
 
@@ -28,6 +30,7 @@ const TextList = (props) =>{
             </div>
             <div className={style.addNewPost} >
                 <textarea   onChange={writeMessage}
+                            value={props.newMessageText}
                             ref={textAreaSend}
                             placeholder="Write something..."
                             onKeyDown={event => event.key === 'Enter' && send()}

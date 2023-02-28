@@ -25,6 +25,7 @@ const profileReducer = (data = initialState , action) => {
                 id:5, header: 'Patrik', content: data.newPostText, counter: '25', date: `3234`
             };
             data.postData.push(newPost); 
+            data.newPostText = "";
             return data;
         default:
             return data;

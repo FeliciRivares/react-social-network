@@ -15,11 +15,11 @@ const App = (props) => {
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Navbar topfriends={props.data.friends.topFriends}/>
+        <Navbar topfriends={props.state.friends.topFriends}/>
         <div className='app-wrapper-content'>
           <Routes>
-            <Route  path='/profile' element={<Profile dispatch={props.dispatch} data={props.data.profile} />} />
-            <Route  path='/dialogs' element={<Dialogs dispatch={props.dispatch} dialog={props.data.dialog.dialog} textItems={props.data.dialog.textItems}/>} />
+            <Route  path='/profile' element={<Profile state={props.state} store={props.store}/>} />
+            <Route  path='/dialogs' element={<Dialogs store={props.store}/>} />
             <Route  path='/news' element={<News/>} />
             <Route  path='/music' element={<Music/>} />
             <Route  path='/settings' element={<Settings/>} />
@@ -29,5 +29,9 @@ const App = (props) => {
      </BrowserRouter>
   )
 }
+
+// dispatch={props.dispatch}
+// dialog={props.data.dialog.dialog}
+// textItems={props.data.dialog.textItems}
 
 export default App;

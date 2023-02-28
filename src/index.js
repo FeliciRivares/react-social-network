@@ -5,11 +5,12 @@ import App from "./App"
 import store from './redux/redux-store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let renderFullPage = (data) => {
+let renderFullPage = (state) => {
     root.render(
         <React.StrictMode>
             <App    dispatch={store.dispatch.bind(store)}
-                    data={data}/>
+                    store={store}
+                    state={state}/>
         </React.StrictMode>
     );
 
@@ -17,8 +18,8 @@ let renderFullPage = (data) => {
 renderFullPage(store.getState());
 
 store.subscribe(() => {
-    let data = store.getState();
-    renderFullPage(data)
+    let state = store.getState();
+    renderFullPage(state)
 });
 
 

@@ -1,8 +1,8 @@
 const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT';
 const SEND_MESSAGE = 'SEND_MESSAGE'
 
-export const updateMessageText = (text) => ({type: UPDATE_MESSAGE_TEXT, text: text})
-export const sendMessage = () => ({type: SEND_MESSAGE }) 
+export const updateMessageTextCreator = (text) => ({type: UPDATE_MESSAGE_TEXT, text: text})
+export const sendMessageCreator = () => ({type: SEND_MESSAGE }) 
 
 let initialState ={
     textItems: [
@@ -26,14 +26,21 @@ let initialState ={
 
 const dialogsReducer = (data = initialState, action) =>{
     switch(action.type){
-        case UPDATE_MESSAGE_TEXT:
-            data.newMessageText = action.text;
-            return data;
+        case UPDATE_MESSAGE_TEXT: {
+            let dataCopy = {...data};
+            dataCopy.newMessageText = [...data.newMessageText]
+            dataCopy.newMessageText = action.text;
+            return dataCopy;
+        }
         case SEND_MESSAGE:
-            let newMessage = {id: 7, text: data.newMessageText}
-            data.textItems.push(newMessage); 
-            data.newMessageText = '';
-            return data;
+            let newMessage = {
+                id: 7, text: data.newMessageText
+            };
+            let dataCopy = {...data};
+            dataCopy.textItems = [...data.textItems]
+            dataCopy.textItems.push(newMessage); 
+            dataCopy.newMessageText = '';
+            return dataCopy;
         default:
             return data;
     }

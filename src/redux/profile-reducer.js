@@ -2,9 +2,9 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const CREATE_NEW_POST = 'CREATE_NEW_POST';
 
 
-export const updateNewPostTextActionCreator = (text) =>
-   ({type: UPDATE_NEW_POST_TEXT, newText: text})
-export const createNewPostActionCreator = () => ({type: CREATE_NEW_POST})  
+export const updateNewPostCreator = (text) =>
+   ({type: UPDATE_NEW_POST_TEXT, text: text})
+export const createNewPostCreator = () => ({type: CREATE_NEW_POST})  
 
 let initialState = {
     postData: [
@@ -12,21 +12,26 @@ let initialState = {
         {id:2, header: 'Sirco', content: 'I`m fell good and you?', counter: '23', date: '22/08/02' },
         {id:3, header: 'Misa', content: 'Me first post', counter: '12', date: '22/08/02' },
         ], 
-        newPostText:'',
+    newPostText:'',
 }
 
 const profileReducer = (data = initialState , action) => {
     switch(action.type){
-        case UPDATE_NEW_POST_TEXT:
-            data.newPostText = action.newText;
-            return data;
-        case CREATE_NEW_POST:
+        case UPDATE_NEW_POST_TEXT: {
+            let dataCopy = {...data}
+            dataCopy.newPostText = action.text;
+            return dataCopy;
+        }
+        case CREATE_NEW_POST:{
             let newPost = {
                 id:5, header: 'Patrik', content: data.newPostText, counter: '25', date: `3234`
             };
-            data.postData.push(newPost); 
-            data.newPostText = "";
-            return data;
+            let dataCopy = {...data};
+            dataCopy.postData = [...data.postData]
+            dataCopy.postData.push(newPost); 
+            dataCopy.newPostText = "";
+            return dataCopy;
+        }
         default:
             return data;
     }

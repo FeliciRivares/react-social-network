@@ -1,23 +1,26 @@
-import React from "react";
 import TextList from './TextList';
-import { sendMessage, updateMessageText } from "../../../redux/dialogs-reducer";
+import { sendMessageCreator, updateMessageTextCreator } from "../../../redux/dialogs-reducer";
+import { connect } from "react-redux";
 
 
-const TextListContainer = (props) =>{
-   let state = props.store.getState();
-
-    let writeMessage = (text) => {
-       let action = updateMessageText(text);
-       props.store.dispatch(action); 
+let mapStateToProps = (state) => {
+    return{
+        textItems: state.dialog.textItems,
+        newMessageText: state.dialog.newMessageText,
     }
-
-    let send = () => {
-        props.store.dispatch(sendMessage())
-    }
-    return (
-        <TextList newMessageText={state.dialog.newMessageText} textItems={state.dialog.textItems} updateMessageText={writeMessage} sendMessage={send}/>
-    )
 }
+let mapDispatchToProps = (dispatch) => {
+    return{
+        updateMessageText: (text) => {
+            dispatch(updateMessageTextCreator(text))
+        },
+        sendMessage: () => { 
+            dispatch(sendMessageCreator())
+        }
+    }
+}
+
+const TextListContainer = connect(mapStateToProps, mapDispatchToProps)(TextList);
 
 export default TextListContainer
 

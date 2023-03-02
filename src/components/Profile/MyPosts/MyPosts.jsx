@@ -4,6 +4,7 @@ import Post from "./Post/Post";
 
 
 const MyPosts = (props) => {
+    
     const post = props.postData.map(p => <Post header={p.header} content={p.content} counter={p.counter} date={p.date}/>);
 
     return(

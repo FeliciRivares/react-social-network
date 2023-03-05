@@ -9,6 +9,7 @@ import Profile from './components/Profile/Profile';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
+import UsersContainer from './components/Users/UsersContainer';
 
 const App = (props) => {
   return (
@@ -23,6 +24,7 @@ const App = (props) => {
             <Route  path='/profile' element={<Profile  store={props.store}/>} />
             <Route  path='/dialogs' element={<Dialogs store={props.store}/>} />
             <Route  path='/news' element={<News/>} />
+            <Route  path='/users' element={<UsersContainer store={props.store}/>} />
             <Route  path='/music' element={<Music/>} />
             <Route  path='/settings' element={<Settings/>} />
           </Routes>

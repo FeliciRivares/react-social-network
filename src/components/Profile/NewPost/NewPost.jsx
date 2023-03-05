@@ -6,12 +6,10 @@ const NewPost = (props) => {
 
     let onPostClick = () => {
         props.createNewPost();
-        // props.dispatch(createNewPostActionCreator())
     }
     let onPostChange = () => {
         let text = newPostElement.current.value;
         props.updateNewPostText(text)
-        // props.dispatch(updateNewPostTextActionCreator(text))
     }
     return(
         <div className={style.container}>
